@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<title>calculator</title>
+	
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: lightblue;
+
+
+		}
+		.calback{
+			width: 500px;
+			height: 550px;
+			margin:  auto;
+			background-color: black;
+		}
+		.numback{
+			width: 300px;
+			height: 540px;
+			margin:0px auto;
+			background-color: white;
+		}
+		.his_and_ans{
+
+			display: block;
+			width: 100%;
+			height: 20%;	
+
+		}
+		.his {	
+			border: 1px solid white;
+			height: 47%;
+			width: 95%;
+			margin: 6px;
+		}
+		.his p{
+			float: right;
+			margin: 20px 30px;
+			padding: 0px;
+		}
+		.ans{
+			border: 1px solid white;
+			outline: none;
+			height: 47%;
+			width: 95%;
+				margin: 6px;
+		}
+		.ans h2{
+			float: right;
+			margin: 0px 27px;
+			padding: 0px;
+		}
+		.num{
+			margin: 15px;
+			margin-top: 35px;
+			align-items: center;
+			
+
+		}
+		button{
+			height: 50px;
+			width: 50px;
+			margin: 7px;
+			border-radius: 50%;
+			border-width: 0px;
+			font-weight:bold;
+			font-size: 1.2em;
+
+			
+		}
+		.a{
+			background: white;
+			cursor: pointer;
+			transition: 0.7s ease;
+		}
+		.a1{
+			transition: 0.7s ease;font-size: 1.4em;cursor: pointer;background-color: red;
+		}
+		.a2{
+			transition: 0.7s ease;font-size: 1.8em;cursor: pointer;background-color: yellow;
+		}
+		.a3{
+			transition: 0.7s ease;font-size: 1.4em;cursor: pointer;background-color: orange;
+		}
+		.a4{
+			transition: 0.7s ease;font-size: 1.4em;cursor: pointer;background-color: blue;
+		}
+		.a5{
+			transition: 0.7s ease;font-size: 1.4em;cursor: pointer;background-color: green;
+		}
+		button:focus{
+			outline: none;
+		background-color: lightgrey;
+		}
+		#ans1{
+			width: 280px;
+			height: 40px;
+			margin-top: 40px;
+			font-size: 1.6em;
+		}
+	</style>
+
+
+
+
+
+
+
+</head>
+<body>
+	<div class="back">
+		<div class="calback">
+			<div class="numback">
+				<div class="his_and_ans">
+					<div class="ans">
+						<input type="text" class="ans1" id="ans1">
+					</div>
+				</div>
+				
+				<div class="num">
+					<div class="num_1">
+						<button class="a3" id="a" onclick="clean()" >CE</button>
+						<button class="a2" id="a" onclick="back()">C</button>
+						<button class="a5" id="a" onclick="insert('%')" value="%" >%</button>
+						<button onclick="insert('/')" value="/" class="a1">/</button>
+					</div>
+					<div class="num_1">
+						<button class="a" onclick="insert(7)" value="7">7</button>
+						<button  class="a"onclick="insert(8)" value="8">8</button>
+						<button  class="a"onclick="insert(9)" value="9">9</button>
+						<button onclick="insert('-')" value="-" class="a2">-</button>
+					</div>
+					<div class="num_1">
+						<button class="a" onclick="insert(4)"  value="4">4</button>
+						<button class="a" onclick="insert(5)" value="5"> 5</button>
+						<button class="a" onclick="insert(6)" value="6">6</button>
+						<button onclick="insert('*')" value="*" class="a3">x</button>
+					</div>
+					<div class="num_1">
+						<button class="a" onclick="insert(3)" value="3">3</button>
+						<button  class="a"onclick="insert(2)" value="2">2</button>
+						<button  class="a"onclick="insert(1)" value="1">1</button>
+						<button onclick="insert('+')" value="+" class="a4">+</button>
+					</div>
+					<div class="num_1">
+						<button style="background-color: white"> </button>
+						<button class="a" onclick="insert(0)" value="0">0</button>
+						<button class="a" onclick="insert('.')" value="." style="background-color: white">. </button>
+						<button onclick="equal()" value="=" class="a5">=</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript">
+function insert(num) {
+		document.getElementById('ans1').value=document.getElementById('ans1').value+num;
+	}
+
+	function clean(){
+		document.getElementById('ans1').value="";
+	}
+
+	function equal(){
+var ans1=document.getElementById('ans1').value;
+if(ans1){
+
+		document.getElementById('ans1').value=eval(document.getElementById('ans1').value);
+		
+
+	}
+	}
+	function back(){
+var exp=document.getElementById('ans1').value;
+	document.getElementById('ans1').value	=exp.substring(0,exp.length-1);
+	}
+	
+	
+</script>
+
+</body>
+</html>
